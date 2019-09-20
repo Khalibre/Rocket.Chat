@@ -11,8 +11,8 @@ import { callbacks } from '../../../../callbacks';
 let advice = '';
 let goToMessage = '';
 Meteor.startup(() => {
-	settings.get('email_style', function() {
-		goToMessage = Mailer.inlinecss('<p><a class=\'btn\' href="[room_path]">{Offline_Link_Message}</a></p>');
+	Mailer.getTemplate('Email_Offline_Link_Message', (value) => {
+		goToMessage = value;
 	});
 	Mailer.getTemplate('Email_Footer_Direct_Reply', (value) => {
 		advice = value;

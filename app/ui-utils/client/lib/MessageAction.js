@@ -200,29 +200,6 @@ Meteor.startup(async function() {
 	});
 
 	MessageAction.addButton({
-		id: 'permalink',
-		icon: 'permalink',
-		label: 'Get_link',
-		classes: 'clipboard',
-		context: ['message', 'message-mobile', 'threads'],
-		async action(event) {
-			const { msg: message } = messageArgs(this);
-			const permalink = await MessageAction.getPermaLink(message._id);
-			$(event.currentTarget).attr('data-clipboard-text', permalink);
-			toastr.success(TAPi18n.__('Copied'));
-		},
-		condition({ subscription }) {
-			if (subscription == null) {
-				return false;
-			}
-
-			return true;
-		},
-		order: 4,
-		group: 'menu',
-	});
-
-	MessageAction.addButton({
 		id: 'copy',
 		icon: 'copy',
 		label: 'Copy',

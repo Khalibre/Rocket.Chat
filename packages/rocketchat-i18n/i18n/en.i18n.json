@@ -1158,6 +1158,7 @@
   "Email_Notification_Mode": "Offline Email Notifications",
   "Email_Notification_Mode_All": "Every Mention/DM",
   "Email_Notification_Mode_Disabled": "Disabled",
+  "Email_Offline_Link_Message": "Offline Link Message",
   "Email_or_username": "Email or username",
   "Email_Placeholder": "Please enter your email address...",
   "Email_Placeholder_any": "Please enter email addresses...",

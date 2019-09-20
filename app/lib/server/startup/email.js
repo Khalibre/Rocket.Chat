@@ -142,6 +142,12 @@ settings.addGroup('Email', function() {
 			multiline: true,
 			i18nLabel: 'Footer',
 		});
+		this.add('Email_Offline_Link_Message', '<p><a class=\'btn\' href="[room_path]">{Offline_Link_Message}</a></p>', {
+			type: 'code',
+			code: 'text/html',
+			multiline: true,
+			i18nLabel: 'Email_Offline_Link_Message',
+		});
 		this.add('Email_Footer_Direct_Reply', '<p class="advice">{Direct_Reply_Advice}</p>', {
 			type: 'code',
 			code: 'text/html',
