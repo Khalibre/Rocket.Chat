@@ -42,6 +42,7 @@ export const sendNotification = async ({
 				fields: {
 					active: 1,
 					emails: 1,
+					customFields: 1,
 					language: 1,
 					status: 1,
 					statusConnection: 1,
@@ -142,6 +143,10 @@ export const sendNotification = async ({
 	})) {
 		receiver.emails.some((email) => {
 			if (email.verified) {
+				const notificationEmail = (receiver.customFields && receiver.customFields.notificationEmail) || [];
+				if (notificationEmail.length > 0) {
+					email.address = notificationEmail;
+				}
 				sendEmail({ message, receiver, subscription, room, emailAddress: email.address, hasMentionToUser });
 
 				return true;
@@ -164,6 +169,7 @@ const project = {
 		'u._id': 1,
 		'receiver.active': 1,
 		'receiver.emails': 1,
+		'receiver.customFields': 1,
 		'receiver.language': 1,
 		'receiver.status': 1,
 		'receiver.statusConnection': 1,
