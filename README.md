@@ -201,6 +201,24 @@ OR our [official docker registry image](https://hub.docker.com/_/rocket.chat/), 
 docker pull rocket.chat
 ```
 
+## Build/Publish Docker Image
+- To build the docker image, please follow commands below:
+
+```
+meteor build --server-only --directory /tmp/rc-build
+cp .docker/Dockerfile /tmp/rc-build
+docker build -t dk-reg.crosswired.com:5000/rocket.chat:1.2.1-yyyymmdd /tmp/rc-build
+```
+> please replace `yyyymmdd` with the real date. eg. 20190930  
+> Run command `docker images` to verify
+
+- To publish docker image into the crosswired docker hub:
+
+```
+docker push dk-reg.crosswired.com:5000/rocket.chat
+```
+> Run command `docker pull dk-reg.crosswired.com:5000/rocket.chat:1.2.1-yyyymmdd` to verify
+
 ## Ansible
 Automated production-grade deployment in minutes, for RHEL / CentOS 7 or Ubuntu 14.04 LTS / 15.04.
 
