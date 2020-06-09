@@ -71,7 +71,7 @@ Meteor.methods({
 			}
 			const subscription = Subscriptions.findOneByRoomIdAndUserId(data.rid, newUser._id);
 			if (!subscription) {
-				addUserToRoom(data.rid, newUser, user);
+				addUserToRoom(data.rid, newUser, user, true);
 			} else {
 				Notifications.notifyUser(userId, 'message', {
 					_id: Random.id(),
