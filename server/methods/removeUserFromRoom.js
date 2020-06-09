@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Match, check } from 'meteor/check';
 
 import { hasPermission, hasRole, getUsersInRole, removeUserFromRoles } from '../../app/authorization';
-import { Users, Subscriptions, Rooms, Messages } from '../../app/models';
+import { Users, Subscriptions, Rooms } from '../../app/models';
 import { callbacks } from '../../app/callbacks';
 
 Meteor.methods({
@@ -62,13 +62,6 @@ Meteor.methods({
 		if (['c', 'p'].includes(room.t) === true) {
 			removeUserFromRoles(removedUser._id, ['moderator', 'owner'], data.rid);
 		}
-
-		Messages.createUserRemovedWithRoomIdAndUser(data.rid, removedUser, {
-			u: {
-				_id: fromUser._id,
-				username: fromUser.username,
-			},
-		});
 
 		Meteor.defer(function() {
 			callbacks.run('afterRemoveFromRoom', { removedUser, userWhoRemoved: fromUser }, room);
