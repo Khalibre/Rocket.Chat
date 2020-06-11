@@ -207,7 +207,7 @@ docker pull rocket.chat
 ```
 meteor build --server-only --directory /tmp/rc-build
 cp .docker/Dockerfile /tmp/rc-build
-docker build -t dk-reg.crosswired.com:5000/rocket.chat:1.2.1-yyyymmdd /tmp/rc-build
+docker build -t khalibre/rocket.chat:cw-1.2.1-yyyymmdd /tmp/rc-build
 ```
 > please replace `yyyymmdd` with the real date. eg. 20190930  
 > Run command `docker images` to verify
@@ -215,9 +215,9 @@ docker build -t dk-reg.crosswired.com:5000/rocket.chat:1.2.1-yyyymmdd /tmp/rc-bu
 - To publish docker image into the crosswired docker hub:
 
 ```
-docker push dk-reg.crosswired.com:5000/rocket.chat
+docker push khalibre/rocket.chat:cw-1.2.1-yyyymmdd
 ```
-> Run command `docker pull dk-reg.crosswired.com:5000/rocket.chat:1.2.1-yyyymmdd` to verify
+> Run command `docker pull khalibre/rocket.chat:cw-1.2.1-yyyymmdd` to verify
 
 ## Ansible
 Automated production-grade deployment in minutes, for RHEL / CentOS 7 or Ubuntu 14.04 LTS / 15.04.
