@@ -20,7 +20,7 @@ const canSetModerator = () => hasAllPermission('set-moderator', Session.get('ope
 
 const canMuteUser = () => hasAllPermission('mute-user', Session.get('openedRoom'));
 
-const canRemoveUser = () => hasAllPermission('remove-user', Session.get('openedRoom'));
+const canRemoveUser = () => false;
 
 const canBlockUser = () =>
 	ChatSubscription.findOne({ rid: Session.get('openedRoom'), 'u._id': Meteor.userId() }, { fields: { blocker: 1 } })
